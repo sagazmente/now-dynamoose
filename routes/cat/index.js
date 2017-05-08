@@ -16,4 +16,11 @@ router.route('/')
       .catch(console.log)
   })
 
+router.route('/:id')
+.get((req, res, next) => {
+  Cat.get(req.params.id)
+      .then((cat) => res.json({status: 'Ok', object: cat}))
+      .catch(console.log)
+})
+
 module.exports = router
